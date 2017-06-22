@@ -267,11 +267,12 @@ var CYAlert = {
             if(ex.fileName) { //Firefox
                 return ex.fileName;
             }
-            else if(ex.stack){ //Chrome 或 IE10
-                return  (ex.stack.match(/at\s+(.*?):\d+:\d+/)||['',''])[1];
-            }
             else if(ex.sourceURL){ //Safari
                 return  ex.sourceURL;
+            }
+            else if(ex.stack){ //Chrome 或 IE10
+                console.log(ex.stack);
+                return  (ex.stack.match(/at\s+(.*?):\d+:\d+/)||['',''])[1];
             }
             else{
                 var path = dc.scripts[dc.scripts.length-1].src;//兼容IE10以下
@@ -280,10 +281,13 @@ var CYAlert = {
         }
     })();
 
+    console.log('__FILE__ fff');
+    console.log(__FILE__);
     var s = dc.createElement("link");
     s.rel = "stylesheet";
     s.type = "text/css";
     var path = __FILE__.substring(0,__FILE__.lastIndexOf('/')+1);
+    console.log(path);
     s.href = path +'CYAlert.css';
     dc.getElementsByTagName("head")[0].appendChild(s);
 })();

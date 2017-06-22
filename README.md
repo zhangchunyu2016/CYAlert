@@ -1,6 +1,11 @@
 # CYAlert
 [![](https://img.shields.io/badge/Support-Firefox-red.svg)](http://www.firefox.com.cn)
 [![](https://img.shields.io/badge/Support-Chrome-green.svg)](https://www.google.cn/chrome/browser/desktop/index.html)
+[![](https://img.shields.io/badge/Support-Opera-red.svg)](http://www.opera.com)
+[![](https://img.shields.io/badge/Support-Safari-blue.svg)](https://www.apple.com/cn/safari/)
+[![](https://img.shields.io/badge/language-javascript-green.svg)](https://github.com/zhangchunyu2016/CYAlert)
+[![](https://img.shields.io/badge/QQ-707214577-red.svg)](http://wpa.qq.com/msgrd?v=3&uin=707214577&site=qq&menu=yes)
+
 
 
 </br>
