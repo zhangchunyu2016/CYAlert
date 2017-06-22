@@ -1,0 +1,44 @@
+body{
+    align-items: center;
+    justify-content: center;
+    background: #dddfff;
+}
+
+
+body div{
+    width: 30%;
+    height: 30px;
+    display: inline-flex;
+    margin: 10px;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+#wait{
+    background: #9a2a00;
+}
+
+#alert{
+    background: #870000;
+}
+
+#error{
+    background: rebeccapurple;
+}
+
+#more{
+    background: #c67f83;
+}
+
+#choose{
+    background: green;
+}
+
+#sucess{
+    background: #717dff;
+}
+
+#waring{
+    background: #cdb22e;
+}
