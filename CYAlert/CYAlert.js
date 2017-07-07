@@ -105,7 +105,7 @@ var CYAlert = {
         var bg = this.findTopWindow().document.getElementById('CYAlert_bg');
 
         if (bg == undefined){
-            console.log('请在show...方法后调用 bg()来设置背景色。');
+            //console.log('请在show...方法后调用 bg()来设置背景色。');
         }else {
             var bgColor = getComputedStyle(bg).backgroundColor;
             if (bgColor == undefined){
@@ -226,6 +226,7 @@ var CYAlert = {
                 this.init();
             }
             dc.getElementById('CYAlert_title').innerText = message;
+            dc.getElementById('CYAlert_bg').style.height = dc.body.scrollHeight+'px';
 
             clearTimeout(this.timeIdentifier);
             dc.getElementById('CYAlert_bg').style.visibility="visible";
@@ -271,7 +272,6 @@ var CYAlert = {
                 return  ex.sourceURL;
             }
             else if(ex.stack){ //Chrome 或 IE10
-                console.log(ex.stack);
                 return  (ex.stack.match(/at\s+(.*?):\d+:\d+/)||['',''])[1];
             }
             else{
@@ -280,14 +280,10 @@ var CYAlert = {
             }
         }
     })();
-
-    console.log('__FILE__ fff');
-    console.log(__FILE__);
     var s = dc.createElement("link");
     s.rel = "stylesheet";
     s.type = "text/css";
     var path = __FILE__.substring(0,__FILE__.lastIndexOf('/')+1);
-    console.log(path);
     s.href = path +'CYAlert.css';
     dc.getElementsByTagName("head")[0].appendChild(s);
 })();
