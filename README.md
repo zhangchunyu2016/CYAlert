@@ -3,17 +3,16 @@
 [![](https://img.shields.io/badge/Support-Chrome-green.svg)](https://www.google.cn/chrome/browser/desktop/index.html)
 [![](https://img.shields.io/badge/Support-Opera-red.svg)](http://www.opera.com)
 [![](https://img.shields.io/badge/Support-Safari-blue.svg)](https://www.apple.com/cn/safari/)
-[![](https://img.shields.io/badge/Support-Safari-blue.svg)](https://img.shields.io/badge/Support-IE11-yellow.svg)
-[![](https://img.shields.io/badge/Support-Safari-blue.svg)](https://img.shields.io/badge/Support-IE%20Edge-yellowgreen.svg)
+[![](https://img.shields.io/badge/Support-IE11-yellow.svg)](https://support.microsoft.com/zh-cn/help/17621/internet-explorer-downloads)
+[![](https://img.shields.io/badge/Support-IE%20Edge-yellowgreen.svg)](https://support.microsoft.com/zh-cn/help/17621/internet-explorer-downloads)
 </br>
 [![](https://img.shields.io/badge/language-javascript-green.svg)](https://github.com/zhangchunyu2016/CYAlert)
 [![](https://img.shields.io/badge/QQ-707214577-red.svg)](http://wpa.qq.com/msgrd?v=3&uin=707214577&site=qq&menu=yes)
-
-
-
 </br>
+
+
 <p>一直在写iOS，看到警告框不是苹果风有点沮丧，所以业余时间写了个，希望对你有帮助。</p></br>
-<img src="http://upload-images.jianshu.io/upload_images/2028853-65b7c7e2e04935c1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"></br>
+<img src="http://upload-images.jianshu.io/upload_images/2028853-3486b3efe1e179a3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"></br>
 
 ## 一.  功能简介 - Introduction
 
