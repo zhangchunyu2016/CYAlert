@@ -3,13 +3,16 @@
 [![](https://img.shields.io/badge/Support-Chrome-green.svg)](https://www.google.cn/chrome/browser/desktop/index.html)
 [![](https://img.shields.io/badge/Support-Opera-red.svg)](http://www.opera.com)
 [![](https://img.shields.io/badge/Support-Safari-blue.svg)](https://www.apple.com/cn/safari/)
+[![](https://img.shields.io/badge/Support-Safari-blue.svg)](https://img.shields.io/badge/Support-IE11-yellow.svg)
+[![](https://img.shields.io/badge/Support-Safari-blue.svg)](https://img.shields.io/badge/Support-IE%20Edge-yellowgreen.svg)
+</br>
 [![](https://img.shields.io/badge/language-javascript-green.svg)](https://github.com/zhangchunyu2016/CYAlert)
 [![](https://img.shields.io/badge/QQ-707214577-red.svg)](http://wpa.qq.com/msgrd?v=3&uin=707214577&site=qq&menu=yes)
 
 
 
 </br>
-<p>iOS写多了，看到警告框不是苹果风有点沮丧，所以业余时间写了个，希望对你有帮助。</p></br>
+<p>一直在写iOS，看到警告框不是苹果风有点沮丧，所以业余时间写了个，希望对你有帮助。</p></br>
 <img src="http://upload-images.jianshu.io/upload_images/2028853-65b7c7e2e04935c1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"></br>
 
 ## 一.  功能简介 - Introduction
@@ -24,23 +27,23 @@
 <script type="text/javascript" src="xxx/CYAlert/CYAlert.js"></script>
 ```
 
-#### 最简单的，显示一个等待状态
+#### 简单点的显示一个等待状态
 ```
 CYAlert.showState('载入中，请稍后。');
 ```
 
-#### 最全面的，显示一个多选框
+#### 全面点的显示一个多选框
 ```
 CYAlert.init(['男','女','中性'] , true).show('选择个你的性别？', 0, function (index) {
-        console.log('你选择了',index);
-    }).bg('none');
+     console.log('你选择了',index);
+}).bg('none');
 ```
 
-#### 请看Demo
+#### 更多用法请看Demo
 
 
 ## 三.  更新历史 - Update History
-暂无
+2017.07.10  - 支持IE10 以及 IE Edge
 			  
 
 ## 四.  更多 - More

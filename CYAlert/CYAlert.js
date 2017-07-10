@@ -94,7 +94,7 @@ var CYAlert = {
             bg.style.background = this.cssBgColor;
             bg.style.visibility="hidden";
         }else {
-            bg.remove();
+            try{bg.remove();}catch(ex){try{bg.removeNode(true);}catch(ex){console.log(ex);}}
         }
     },
     /**
@@ -105,7 +105,7 @@ var CYAlert = {
         var bg = this.findTopWindow().document.getElementById('CYAlert_bg');
 
         if (bg == undefined){
-            //console.log('请在show...方法后调用 bg()来设置背景色。');
+            console.log('请在show...方法后调用 bg()来设置背景色。');
         }else {
             var bgColor = getComputedStyle(bg).backgroundColor;
             if (bgColor == undefined){
@@ -125,7 +125,7 @@ var CYAlert = {
         var dc = this.findTopWindow().document;
         var bg = dc.getElementById('CYAlert_bg');
         if (bg != undefined){
-            bg.remove();
+            try{bg.remove();}catch(ex){try{bg.removeNode(true);}catch(ex){console.log(ex);}}
         }
         if (eternal != undefined && typeof (eternal) == 'boolean'){
             this.eternal = eternal;
@@ -220,13 +220,14 @@ var CYAlert = {
      * @param   src            图片地址
      */
     toggleDisplay:function (identifier ,interval, message,src) {
-        var dc = this.findTopWindow().document;
+        var win = this.findTopWindow();
+        var dc = win.document;
+        var that = this;
         if (identifier){
             if (dc.getElementById('CYAlert_bg') == undefined){
                 this.init();
             }
             dc.getElementById('CYAlert_title').innerText = message;
-            dc.getElementById('CYAlert_bg').style.height = dc.body.scrollHeight+'px';
 
             clearTimeout(this.timeIdentifier);
             dc.getElementById('CYAlert_bg').style.visibility="visible";
@@ -237,7 +238,6 @@ var CYAlert = {
 
             var intervalTime = parseFloat(interval ==undefined ? message.length*0.1 +2.5 : interval);
             if (intervalTime > 0){
-                var that = this;
                 that.timeIdentifier = setTimeout(function () {that.dismiss();} , intervalTime*1000);
             }
         }else {
@@ -245,6 +245,32 @@ var CYAlert = {
             dc.getElementById('CYAlert_parting').style.display = 'block';  //如果CSS中改变了标签类型，这里也要修改成相应的
             dc.getElementById('CYAlert_imgsBox').style.display = 'none';
         }
+
+        //修正位置
+        that.location();
+    },
+    /**
+     * 修正警告框位置(被动调用)
+     */
+    location: function () {
+        var win = this.findTopWindow();
+        var dc = win.document;
+
+        //修正弹出对话框的Y轴位置
+        var h = 0;
+        if (dc.body.pageYOffset) {
+            h = dc.body.pageYOffset;
+        }else if (dc.documentElement && dc.documentElement.scrollTop){
+            h = dc.documentElement.scrollTop;
+        }else if (dc.body) {// all other Explorers
+            h = dc.body.scrollTop;
+        }
+
+        var bodyHeight = Math.max(dc.body.scrollHeight,dc.documentElement.scrollHeight);
+        dc.getElementById('CYAlert_bg').style.height = bodyHeight + 'px';
+        var contentBox = dc.getElementById('CYAlert_content');
+        contentBox.style.left = (dc.documentElement.clientWidth*0.5 - contentBox.clientWidth*0.5) +'px';
+        contentBox.style.top = (dc.documentElement.clientHeight*0.5 - contentBox.clientHeight*0.5) +'px';
     },
     /**
      * 返回点击下标(被动调用)
@@ -271,8 +297,11 @@ var CYAlert = {
             else if(ex.sourceURL){ //Safari
                 return  ex.sourceURL;
             }
-            else if(ex.stack){ //Chrome 或 IE10
-                return  (ex.stack.match(/at\s+(.*?):\d+:\d+/)||['',''])[1];
+            else if(ex.stack){ //Chrome 或 IE
+                var stackPath = (ex.stack.match(/at\s+(.*?):\d+:\d+/)||['',''])[1];
+                return (stackPath.indexOf('Anonymous function (') >= 0) 
+                ? stackPath.substring(20,stackPath.length) 
+                : stackPath;
             }
             else{
                 var path = dc.scripts[dc.scripts.length-1].src;//兼容IE10以下
@@ -283,7 +312,6 @@ var CYAlert = {
     var s = dc.createElement("link");
     s.rel = "stylesheet";
     s.type = "text/css";
-    var path = __FILE__.substring(0,__FILE__.lastIndexOf('/')+1);
-    s.href = path +'CYAlert.css';
+    s.href = __FILE__.substring(0,__FILE__.lastIndexOf('/')+1) +'CYAlert.css';
     dc.getElementsByTagName("head")[0].appendChild(s);
 })();

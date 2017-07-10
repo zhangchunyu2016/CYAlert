@@ -15,7 +15,7 @@
     z-index: 9999;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     -moz-user-select:none;/*火狐*/
     -webkit-user-select:none;/*webkit浏览器*/
     -ms-user-select:none;/*IE10*/
@@ -32,6 +32,7 @@
 
 /*警告框背景*/
 #CYAlert_content{
+    position: fixed;
     background: #ffffff;
     width: 300px;
     border-radius: 5px;
