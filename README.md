@@ -46,13 +46,19 @@ CYAlert.showWaring('此操作不可达!');
 CYAlert.showSucess('请求成功.');
 ```
 
+#### 指定不同的蒙版颜色
+```
+CYAlert.showError('请求失败!').bg('red');
+or
+CYAlert.showSucess('请求成功.').bg('none');
+```
+
 #### 指定消失的时间
 ```
 //单纯的显示状态，默认存在2.5秒 + 每个字0.1秒，
 //show方法调用的，默认永久存在，直到用户点击交互按钮关闭
 //指定时间小于等于0时永久存在
- CYAlert.showSucess('请求成功.',0);
-
+CYAlert.showSucess('请求成功.',0);
 ```
 
 #### 可选的初始化设置
