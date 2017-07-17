@@ -89,13 +89,21 @@ var CYAlert = {
     dismiss: function () {
         clearTimeout(this.timeIdentifier);
         var bg = this.findTopWindow().document.getElementById('CYAlert_bg');
-        bg.onclick = undefined;
-        if (this.eternal == false){
-            bg.style.background = this.cssBgColor;
-            bg.style.visibility="hidden";
-        }else {
-            try{bg.remove();}catch(ex){try{bg.removeNode(true);}catch(ex){console.log(ex);}}
+        if (bg != undefined || bg != null){
+            bg.onclick = undefined;
+            if (this.eternal == false){
+                bg.style.background = this.cssBgColor;
+                bg.style.visibility="hidden";
+            }else {
+                try{
+                    bg.remove();
+                }
+                catch(ex){
+                    try{bg.removeNode(true);}catch(ex){console.log(ex);}
+                }
+            }
         }
+
     },
     /**
      * 设置背景色

@@ -46,6 +46,11 @@ CYAlert.showWaring('此操作不可达!');
 CYAlert.showSucess('请求成功.');
 ```
 
+#### 手动移除
+```
+CYAlert.dismiss();
+```
+
 #### 指定不同的蒙版颜色
 ```
 CYAlert.showError('请求失败!').bg('red');
@@ -85,6 +90,7 @@ CYAlert.init(['男','女','中性'] , true).show('选择个你的性别？', 0, 
 
 ## 三.  更新历史 - Update History
 2017.07.10  - 支持IE11 以及 IE Edge
+2017.07.18	- 修复dimiss()连续调用，对象可能为null时报错的问题(issue By woshiku)
 			  
 
 ## 四.  更多 - More
